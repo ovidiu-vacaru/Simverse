@@ -11,7 +11,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
-add_executable(simverse_server src/main.cpp src/framer.cpp)
+add_executable(simverse_server src/main.cpp src/world.cpp)
 
 target_include_directories(simverse_server PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/src/proto)
 
