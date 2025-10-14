@@ -1,23 +1,12 @@
-#include <iostream>
-#include "world.hpp"
-#include "types.hpp"
+#include <cstdint>
+#include <bitset>
+#include <limits>
 
-
-int main() {
-    World world;
-
-    Entity player = world.create_entity();
-    Entity rock = world.create_entity();
-
-    world.add_component(player, Position{2.5f, 3.5f});
-    world.add_component(player, Health{});
-    world.add_component(rock, Position{1.1f, 2.2f});
-
-
-    auto& player_location = world.get_component<Position>(player);
-
-    std::cout << player_location.x << player_location.y;
+using Entity = std::uint32_t;
+using ComponentID = std::uint8_t;
 
 
 
-}
+constexpr std::size_t kNumComponents = static_cast<std::size_t>(std::numeric_limits<ComponentID>::max() + 1);
+
+using Signature = std::bitset<kNumComponents>;
